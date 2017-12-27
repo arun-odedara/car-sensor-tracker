@@ -5,7 +5,7 @@
   <groupId>car-tracker</groupId>
   <artifactId>car-tracker</artifactId>
   <version>1.0.0</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <name>car-tracker</name>
   <url>http://maven.apache.org</url>

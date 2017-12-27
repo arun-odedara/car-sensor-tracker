@@ -2,6 +2,7 @@ package com.springrest.entity;
 
 import java.util.Date;
 
+
 public class Reading {
 
     private String vin;
