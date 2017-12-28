@@ -22,7 +22,7 @@ public class ReadingController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{vin}")
-    public Reading getReadingByVin(@PathVariable("vin") String vin){
+    public List<Reading> getReadingByVin(@PathVariable("vin") String vin){
         return readingService.getReadingByVin(vin);
     }
 

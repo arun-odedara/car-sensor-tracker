@@ -21,10 +21,10 @@ public class ReadingRepositoryImpl implements ReadingRepository{
         return reading;
     }
 
-    public Reading getReadingByVin(String vin) {
+    public List<Reading> getReadingByVin(String vin) {
         TypedQuery<Reading> query = em.createNamedQuery("Reading.getReadingByVin", Reading.class);
         query.setParameter("paramVin", vin);
-        return query.getSingleResult();
+        return query.getResultList();
     }
 
     public List<Reading> getAllReadings(){

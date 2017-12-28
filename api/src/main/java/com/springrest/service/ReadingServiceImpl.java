@@ -17,7 +17,7 @@ public class ReadingServiceImpl implements ReadingService {
         readingRepository.insertReadings(reading);
     }
 
-    public Reading getReadingByVin(String vin){
+    public List<Reading> getReadingByVin(String vin){
         return readingRepository.getReadingByVin(vin);
     }
 
