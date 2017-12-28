@@ -13,6 +13,8 @@ public class Reading {
 
     @Id
     private String id;
+
+
     private String vin;
     private Date timestamp;
     private double latitude;
