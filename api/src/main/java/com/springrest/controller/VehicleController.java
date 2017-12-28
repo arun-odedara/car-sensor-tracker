@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://mocker.egen.io")
 @RestController
 @RequestMapping(value = "/vehicles")
 public class VehicleController {
@@ -15,7 +16,7 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @RequestMapping(method = RequestMethod.PUT)
-    public void insertVehicles(@RequestBody Vehicle vehicle){
+    public void insertVehicles(@RequestBody List<Vehicle> vehicle){
         vehicleService.insertVehicle(vehicle);
     }
 

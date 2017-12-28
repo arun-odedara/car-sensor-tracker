@@ -1,10 +1,20 @@
 package com.springrest.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import java.util.Date;
 
+@Entity
+@NamedQueries({
+        @NamedQuery(name = "Vehicle.getVehicleByVin", query = "SELECT vehicle from Vehicle vehicle where vehicle.vin=:paramEmail"),
+        @NamedQuery(name = "Vehicle.getAllVehicles", query = "SELECT vehicle from Vehicle vehicle ORDER BY vehicle.vin ASC "),
+})
 public class Vehicle
 {
 
+    @Id
     private String vin;
     private String make;
     private String model;

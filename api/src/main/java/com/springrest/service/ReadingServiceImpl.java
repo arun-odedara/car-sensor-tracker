@@ -5,6 +5,8 @@ import com.springrest.repository.ReadingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReadingServiceImpl implements ReadingService {
 
@@ -17,5 +19,9 @@ public class ReadingServiceImpl implements ReadingService {
 
     public Reading getReadingByVin(String vin){
         return readingRepository.getReadingByVin(vin);
+    }
+
+    public List<Reading> getAllReadings() {
+        return readingRepository.getAllReadings();
     }
 }

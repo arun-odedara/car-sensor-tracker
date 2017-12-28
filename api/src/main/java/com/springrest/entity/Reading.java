@@ -1,10 +1,18 @@
 package com.springrest.entity;
 
+import javax.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
-
+@Entity
+@NamedQueries({
+        @NamedQuery(name = "Reading.getReadingByVin", query = "SELECT reading from Reading reading where reading.vin=:paramVin"),
+        @NamedQuery(name = "Reading.getAllReadings", query = "SELECT reading from Reading reading order by reading.vin ASC")
+})
 public class Reading {
 
+    @Id
+    private String id;
     private String vin;
     private Date timestamp;
     private double latitude;
@@ -16,8 +24,20 @@ public class Reading {
     private boolean checkEngineLightOn;
     private boolean engineCoolantLow;
     private boolean cruiseControlOn;
+
+    @Embedded
     private Tires tires;
 
+    public Reading(){
+        this.id = UUID.randomUUID().toString();
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Tires getTires() {
         return tires;
