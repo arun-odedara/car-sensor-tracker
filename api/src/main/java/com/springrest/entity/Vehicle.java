@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Vehicle.getVehicleByVin", query = "SELECT vehicle from Vehicle vehicle where vehicle.vin=:paramEmail"),
+        @NamedQuery(name = "Vehicle.getVehicleByVin", query = "SELECT vehicle from Vehicle vehicle where vehicle.vin=:paramVin"),
         @NamedQuery(name = "Vehicle.getAllVehicles", query = "SELECT vehicle from Vehicle vehicle ORDER BY vehicle.vin ASC "),
 })
 public class Vehicle
@@ -80,16 +80,4 @@ public class Vehicle
         this.lastServiceDate = lastServiceDate;
     }
 
-    @Override
-    public String toString() {
-        return "Vehicles{" +
-                "vin='" + vin + '\'' +
-                ", make='" + make + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                ", redlineRpm=" + redlineRpm +
-                ", maxFuelVolume=" + maxFuelVolume +
-                ", lastServiceDate=" + lastServiceDate +
-                '}';
-    }
 }

@@ -136,22 +136,4 @@ public class Reading {
     public void setEngineRpm(double engineRpm) {
         this.engineRpm = engineRpm;
     }
-
-    @Override
-    public String toString() {
-        return "Reading{" +
-                "vin='" + vin + '\'' +
-                ", timestamp=" + timestamp +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                ", fuelVolume=" + fuelVolume +
-                ", speed=" + speed +
-                ", engineRpm=" + engineRpm +
-                ", engineHp=" + engineHp +
-                ", checkEngineLightOn=" + checkEngineLightOn +
-                ", engineCoolantLow=" + engineCoolantLow +
-                ", cruiseControlOn=" + cruiseControlOn +
-                ", tires=" + tires +
-                '}';
-    }
 }

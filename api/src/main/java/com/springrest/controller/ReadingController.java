@@ -3,7 +3,6 @@ package com.springrest.controller;
 import com.springrest.entity.Reading;
 import com.springrest.service.ReadingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,13 +21,12 @@ public class ReadingController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{vin}")
-    public List<Reading> getReadingByVin(@PathVariable("vin") String vin){
-        return readingService.getReadingByVin(vin);
+    public List<Reading> getReadingsByVin(@PathVariable("vin") String vin){
+        return readingService.getReadingsByVin(vin);
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public List<Reading> getAllReadings(){
         return  readingService.getAllReadings();
     }
-
 }

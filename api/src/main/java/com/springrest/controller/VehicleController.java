@@ -16,8 +16,8 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @RequestMapping(method = RequestMethod.PUT)
-    public void insertVehicles(@RequestBody List<Vehicle> vehicle){
-        vehicleService.insertVehicle(vehicle);
+    public void upsertVehicles(@RequestBody List<Vehicle> vehicle){
+        vehicleService.upsertVehicle(vehicle);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{vin}")
@@ -26,9 +26,9 @@ public class VehicleController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Vehicle> getAllVehicle(){
+    public List<Vehicle> getAllVehicles(){
 
-        return vehicleService.getAllVehicle();
+        return vehicleService.getAllVehicles();
     }
 
 

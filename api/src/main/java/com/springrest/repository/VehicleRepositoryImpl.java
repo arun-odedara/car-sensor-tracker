@@ -16,25 +16,21 @@ public class VehicleRepositoryImpl implements VehicleRepository{
     @PersistenceContext
     private EntityManager em;
 
-    public Vehicle insertVehicle(Vehicle vehicle) {
+    public void insertVehicle(Vehicle vehicle) {
         em.persist(vehicle);
-        return  vehicle;
+        em.close();
     }
 
-    public Vehicle updateVehicle(Vehicle vehicle) {
+    public void updateVehicle(Vehicle vehicle) {
         em.merge(vehicle);
-        return  vehicle;
+        em.close();
     }
 
     public Vehicle getVehicleByVin(String vin) {
-//        TypedQuery<Vehicle> query = em.createNamedQuery("Vehicle.getVehicleByVin", Vehicle.class);
-//        query.setParameter("paramEmail", vin);
-//        return query.getSingleResult();
-
         return em.find(Vehicle.class, vin);
     }
 
-    public List<Vehicle> getAllVehicle() {
+    public List<Vehicle> getAllVehicles() {
         TypedQuery<Vehicle> query = em.createNamedQuery("Vehicle.getAllVehicles", Vehicle.class);
         return query.getResultList();
     }

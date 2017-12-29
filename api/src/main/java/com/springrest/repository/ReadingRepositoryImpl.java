@@ -16,12 +16,12 @@ public class ReadingRepositoryImpl implements ReadingRepository{
     @PersistenceContext
     private EntityManager em;
 
-    public Reading insertReadings(Reading reading) {
+    public void insertReadings(Reading reading) {
         em.persist(reading);
-        return reading;
+        em.close();
     }
 
-    public List<Reading> getReadingByVin(String vin) {
+    public List<Reading> getReadingsByVin(String vin) {
         TypedQuery<Reading> query = em.createNamedQuery("Reading.getReadingByVin", Reading.class);
         query.setParameter("paramVin", vin);
         return query.getResultList();
