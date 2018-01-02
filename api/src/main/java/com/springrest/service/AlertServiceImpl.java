@@ -24,6 +24,9 @@ public class AlertServiceImpl  implements AlertService{
     @Autowired
     AlertRepository alertRepository;
 
+    @Autowired
+    EmailService emailService;
+
     public void engineRpmAlert(Reading reading) {
 
         String vin = reading.getVin();
@@ -37,6 +40,7 @@ public class AlertServiceImpl  implements AlertService{
             alert.setAlertType("ENGINE");
 //            alert.setReading(reading);
 
+            emailService.sendEmail(alert, "receiver@gmail.com");
             alertRepository.createAlert(alert);
         }
     }
@@ -46,7 +50,6 @@ public class AlertServiceImpl  implements AlertService{
         Vehicle existing = vehicleRepository.getVehicleByVin(vin);
         double fuelVolume = reading.getFuelVolume();
         double maxfuelVolume = existing.getMaxFuelVolume();
-        System.out.println("FuelVolume : " +fuelVolume + "MAX---->" + maxfuelVolume +"---->" + maxfuelVolume*.10);
         if(fuelVolume < maxfuelVolume*.10){
             Alert alert = new Alert();
             alert.setVin(reading.getVin());
